@@ -1,5 +1,6 @@
-package Clase;
+package Clase.Entities;
 
+import Clase.Spells.Spell;
 import Interfete.Battle;
 
 import java.util.ArrayList;

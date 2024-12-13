@@ -1,4 +1,4 @@
-package Clase;
+package Clase.Accounts;
 
 public class Credentials {
     private String email;

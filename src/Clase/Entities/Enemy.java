@@ -1,4 +1,9 @@
-package Clase;
+package Clase.Entities;
+
+import Clase.Spells.Earth;
+import Clase.Spells.Fire;
+import Clase.Spells.Ice;
+import Clase.Spells.Spell;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -7,9 +12,11 @@ public class Enemy extends Entity{
     private int attackDamage;
 
     public Enemy() {
-        super(randomNumber(100, 75), generateSpells(), randomNumber(100, 75),
+        super(randomNumber(75, 100), generateSpells(), randomNumber(75, 100),
                     generateResist(), generateResist(), generateResist());
         this.attackDamage = randomNumber(10, 15);
+        this.setCurrentHealth(super.getMaxHealth());
+        this.setCurrentMana(super.getMaxMana());
     }
 
     public int getAttackDamage() {
@@ -71,6 +78,10 @@ public class Enemy extends Entity{
         if (super.getCurrentMana() >= spell.getManaCost()) {
             super.setCurrentMana(super.getCurrentMana() - spell.getManaCost());
             target.receiveDamage(spell.getDamage());
+            System.out.println("Enemy used " + spell.toString());
+        } else {
+            System.out.println("Not enough mana to cast spell");
+            defaultAttack(target);
         }
     }
 

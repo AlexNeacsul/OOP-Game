@@ -1,4 +1,4 @@
-package Clase;
+package Clase.Spells;
 
 public class Earth extends Spell {
     public Earth(String name, int damage, int manaCost) {
@@ -7,11 +7,10 @@ public class Earth extends Spell {
 
     @Override
     public String toString() {
-        return "Earth{" +
+        return
                 "name='" + super.getName() + '\'' +
                 ", type='" + super.getType() + '\'' +
                 ", damage=" + super.getDamage() +
-                ", manaCost=" + super.getManaCost() +
-                '}';
+                ", manaCost=" + super.getManaCost();
     }
 }

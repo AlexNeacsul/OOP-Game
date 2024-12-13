@@ -1,4 +1,4 @@
-package Clase;
+package Clase.Spells;
 
 public class Ice extends Spell {
     public Ice(String name, int damage, int manaCost) {
@@ -7,11 +7,10 @@ public class Ice extends Spell {
 
     @Override
     public String toString() {
-        return "Ice{" +
+        return
                 "name='" + super.getName() + '\'' +
                 ", type='" + super.getType() + '\'' +
                 ", damage=" + super.getDamage() +
-                ", manaCost=" + super.getManaCost() +
-                '}';
+                ", manaCost=" + super.getManaCost();
     }
 }

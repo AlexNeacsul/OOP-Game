@@ -1,4 +1,4 @@
-package Clase;
+package Clase.Spells;
 
 public abstract class Spell {
     private String name;
