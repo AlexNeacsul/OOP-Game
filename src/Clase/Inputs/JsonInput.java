@@ -1,9 +1,12 @@
-import org.example.entities.Account;
-import org.example.entities.Credentials;
-import org.example.entities.characters.Character;
-import org.example.entities.characters.Mage;
-import org.example.entities.characters.Rogue;
-import org.example.entities.characters.Warrior;
+package Clase.Inputs;
+import Clase.Accounts.Account.Information;
+import Clase.Accounts.Account;
+import Clase.Accounts.Credentials;
+import Clase.Entities.Character;
+import Clase.Entities.Mage;
+import Clase.Entities.Rogue;
+import Clase.Entities.Warrior;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -17,7 +20,7 @@ import java.util.TreeSet;
 
 public class JsonInput {
     public static ArrayList<Account> deserializeAccounts() {
-        String accountPath = "C:\\Users\\.........\\tema1\\accounts.json";
+        String accountPath = "F:\\Facultate\\POO\\OOP-Game\\src\\Clase\\Inputs\\accounts.json";
         try {
             String content = new String((Files.readAllBytes(Paths.get(accountPath))));
             JSONObject obj = new JSONObject(content);

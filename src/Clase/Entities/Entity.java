@@ -1,9 +1,13 @@
 package Clase.Entities;
 
+import Clase.Spells.Earth;
+import Clase.Spells.Fire;
+import Clase.Spells.Ice;
 import Clase.Spells.Spell;
 import Interfete.Battle;
-
 import java.util.ArrayList;
+import java.util.Random;
+import Enumerations.Colors;
 
 public abstract class Entity implements Battle {
     private ArrayList<Spell> spells;
@@ -83,6 +87,38 @@ public abstract class Entity implements Battle {
 
     public void setIceResist(boolean iceResist) {
         this.iceResist = iceResist;
+    }
+
+    private static String getColorForSpell(Spell spell) {
+        if (spell instanceof Fire) {
+            return Colors.RED_BRIGHT.getColor();
+        } else if (spell instanceof Ice) {
+            return Colors.CYAN_BRIGHT.getColor();
+        } else if (spell instanceof Earth) {
+            return Colors.GREEN_BRIGHT.getColor();
+        }
+        return Colors.RESET.getColor();
+    }
+
+    private static String formatSpell(Spell spell) {
+        return String.format(
+                "%s - Type: %s | Damage: %d | Mana Cost: %d",
+                spell.getName(),
+                spell.getClass().getSimpleName(),
+                spell.getDamage(),
+                spell.getManaCost()
+        );
+    }
+
+    public void printSpells() {
+        System.out.println("Your Spells:");
+        int spellNumber = 1;
+        for (Spell spell : spells) {
+            String color = getColorForSpell(spell);
+            System.out.println(color + spellNumber + ". " + formatSpell(spell) + Colors.RESET.getColor());
+            spellNumber++;
+        }
+        System.out.println("\n");
     }
 
     public abstract void healthRegen(int regenAmount);

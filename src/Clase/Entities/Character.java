@@ -82,4 +82,8 @@ public abstract class Character extends Entity{
     public void setAttackDamage(int attackDamage) {
         this.attackDamage = attackDamage;
     }
+
+    public abstract void Concede();
+
+    public abstract void levelUp(Character character);
 }
